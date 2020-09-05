@@ -1,0 +1,13 @@
+
+<list
+  [items]="items"
+  [itemTemplate]="tplItem"
+></list>
+
+<ng-template let-item="item" #tplItem>
+  <info 
+    [data]="item"
+    [config]="infoConfig"
+    (click)="itemClick($event, item)"
+  ></info>
+</ng-template>
