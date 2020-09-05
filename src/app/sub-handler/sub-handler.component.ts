@@ -64,6 +64,9 @@ export class SubHandlerComponent implements OnInit {
   }
 
   onAddNewItem() {
-    this.items.push({id: this.items.length+1, name: new Date().toString(), type: 'NEW'});
+    const value = this.formGroupNewItem.getRawValue();
+    value.id = this.items.length+1;
+
+    this.items.push(value);
   }
 }
