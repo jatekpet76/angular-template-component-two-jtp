@@ -1,0 +1,13 @@
+
+<ul>
+  <button (click)="onAddNewItem()">Add New Item</button>
+  <ng-container *ngFor="let item of items">
+    <li>
+      <ng-container 
+        [ngTemplateOutlet]="itemTemplate"
+        [ngTemplateOutletContext]="{item: item}"
+      ></ng-container>
+      <button (click)="onRemove($event, item)">Remove Item</button>
+    </li>
+  </ng-container>
+</ul>

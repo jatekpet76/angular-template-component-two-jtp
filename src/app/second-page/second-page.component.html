@@ -1,0 +1,15 @@
+
+<h2>Second Page</h2>
+
+<sub-handler
+  [items]="items"
+  [itemTemplate]="tplItem"
+></sub-handler>
+
+<ng-template let-item="item" #tplItem>
+  <info 
+    [data]="item"
+    [config]="infoConfig"
+    (click)="itemClick($event, item)"
+  ></info>
+</ng-template>

@@ -7,10 +7,12 @@ import { HelloComponent } from './hello.component';
 import { ListComponent } from './list/list.component';
 import { InfoComponent } from './info/info.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { SubHandlerComponent } from './sub-handler/sub-handler.component';
+import { SecondPageComponent } from './second-page/second-page.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ListComponent, InfoComponent, FirstPageComponent ],
+  declarations: [ AppComponent, HelloComponent, ListComponent, InfoComponent, FirstPageComponent, SubHandlerComponent, SecondPageComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
