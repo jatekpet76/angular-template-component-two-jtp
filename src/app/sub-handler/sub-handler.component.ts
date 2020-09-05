@@ -53,6 +53,10 @@ export class SubHandlerComponent implements OnInit {
       this.formArray.push(form);
     });
 
+    this.prepareNewItem();
+  }
+
+  prepareNewItem() {
     const newItem: any = {};
     this.formGroupNewItem = this.subHandler.createNewFormGroup(newItem);
   }
@@ -68,5 +72,7 @@ export class SubHandlerComponent implements OnInit {
     value.id = this.items.length+1;
 
     this.items.push(value);
+
+    this.prepareNewItem();
   }
 }
