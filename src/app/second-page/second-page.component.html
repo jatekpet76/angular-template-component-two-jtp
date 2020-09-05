@@ -1,32 +1,76 @@
 
 <h2>Second Page</h2>
 
-<sub-handler
-  [items]="items"
-  [itemTemplate]="tplItem"
-  [newTemplate]="tplNewItem"
-  [formArray]="formArray"
-  [subHandler]="this"
-></sub-handler>
+<table width="100%">
+  <tr>
+    <td>
+      <sub-handler
+        [items]="secondItems"
+        [itemTemplate]="tplSecondItem"
+        [newTemplate]="tplSecondNew"
+        [formArray]="secondFormArray"
+        [subHandler]="this.secondItemHandler"
+      ></sub-handler>
 
-<ng-template let-item="item" #tplItem>
-  <info 
-    [data]="item"
-    [config]="infoConfig"
-    (click)="itemClick($event, item)"
-  ></info>
-</ng-template>
+      <ng-template let-item="item" #tplSecondItem>
+        <info 
+          [data]="item"
+          [config]="infoConfig"
+          (click)="itemClick($event, item)"
+        ></info>
+      </ng-template>
 
-<ng-template #tplNewItem
-  let-handler="handler" 
-  let-formGroup="formGroup"
->
-  <label
-    [formGroup]="formGroup"
-  >
-    Name
-    <input 
-      formControlName="name"
-      type="text">
-  </label>
-</ng-template>
+      <ng-template #tplSecondNew
+        let-handler="handler" 
+        let-formGroup="formGroup"
+      >
+        <label
+          [formGroup]="formGroup"
+        >
+          Name: 
+          <input 
+            formControlName="name"
+            type="text">
+
+          Approve: 
+          <input 
+            formControlName="approve"
+            type="checkbox">
+        </label>
+      </ng-template>
+    </td>
+
+    <td>
+      <sub-handler
+        [items]="items"
+        [itemTemplate]="tplItem"
+        [newTemplate]="tplNewItem"
+        [formArray]="formArray"
+        [subHandler]="this"
+      ></sub-handler>
+
+      <ng-template let-item="item" #tplItem>
+        <info 
+          [data]="item"
+          [config]="infoConfig"
+          (click)="itemClick($event, item)"
+        ></info>
+      </ng-template>
+
+      <ng-template #tplNewItem
+        let-handler="handler" 
+        let-formGroup="formGroup"
+      >
+        <label
+          [formGroup]="formGroup"
+        >
+          Name
+          <input 
+            formControlName="name"
+            type="text">
+        </label>
+      </ng-template>
+    </td>
+  </tr>
+
+</table>

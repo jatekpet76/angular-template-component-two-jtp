@@ -18,9 +18,32 @@ export class SecondPageComponent implements OnInit, SubHandler {
     {id: 7, name: 'Leonora', type: 'CRAZY'},
   ];
 
+  secondItems = [
+    {id: 1, name: 'Joe', approve: false},
+    {id: 2, name: 'Elena', approve: true},
+    {id: 3, name: 'Sigfied', approve: true},
+  ];
+
   formArray = new FormArray([]);
+  secondFormArray = new FormArray([]);
 
   infoConfig: any = {scope: 'FirstPage'};
+
+  public secondItemHandler = new class implements SubHandler {
+    constructor(public parent: SecondPageComponent) {
+    }
+
+    createNewFormGroup(item: any): FormGroup{
+      item['name'] = new Date().toISOString();
+      item['approve'] = false;
+
+      return this.parent.formBuilder.group(item);
+    }
+
+    createItemFormGroup(item: any): FormGroup{
+      return this.parent.formBuilder.group(item);
+    }
+  }(this);
 
   constructor(
     private formBuilder: FormBuilder,
