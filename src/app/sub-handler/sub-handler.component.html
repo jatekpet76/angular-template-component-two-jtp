@@ -2,6 +2,10 @@
 <h3>Sub Handler</h3>
 
 <ul>
+  <ng-container 
+    [ngTemplateOutlet]="newTemplate"
+    [ngTemplateOutletContext]="{handler: this}"
+  ></ng-container>
   <button (click)="onAddNewItem()">Add New Item</button>
   <ng-container *ngFor="let item of items">
     <li>

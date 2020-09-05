@@ -4,6 +4,9 @@
 <sub-handler
   [items]="items"
   [itemTemplate]="tplItem"
+  [newTemplate]="tplNewItem"
+  [formArray]="formArray"
+  [subHandler]="this"
 ></sub-handler>
 
 <ng-template let-item="item" #tplItem>
@@ -12,4 +15,11 @@
     [config]="infoConfig"
     (click)="itemClick($event, item)"
   ></info>
+</ng-template>
+
+<ng-template let-handler="handler" #tplNewItem>
+  <label>
+    Name
+    <input type="text">
+  </label>
 </ng-template>

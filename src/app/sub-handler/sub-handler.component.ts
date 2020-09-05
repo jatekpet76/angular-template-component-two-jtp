@@ -1,7 +1,11 @@
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { FormGroup, FormArray } from '@angular/forms';
 
 export interface SubHandler {
-  
+  createItemFormGroup(item: any): FormGroup;
+  createNewFormGroup(item: any): FormGroup;
+
+  // filterItem(item: any): boolean;
 }
 
 /*
@@ -33,13 +37,24 @@ export interface SubHandler {
 })
 export class SubHandlerComponent implements OnInit {
   @Input() items: any[];
+  @Input() formArray: FormArray;
   @Input() subHandler: SubHandler;
   @Input() itemTemplate: TemplateRef<any>;
+  @Input() newTemplate: TemplateRef<any>;
+
+  formGroupNewItem: FormGroup;
 
   constructor(
   ) {}
 
   ngOnInit() {
+    this.items.forEach(item => {
+      const form = this.subHandler.createItemFormGroup(item);
+      this.formArray.push(form);
+    });
+
+    const newItem: any = {};
+    this.formGroupNewItem = this.subHandler.createNewFormGroup(newItem);
   }
 
   onRemove(event, item) {

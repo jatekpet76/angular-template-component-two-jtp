@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -11,8 +11,20 @@ import { SubHandlerComponent } from './sub-handler/sub-handler.component';
 import { SecondPageComponent } from './second-page/second-page.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, ListComponent, InfoComponent, FirstPageComponent, SubHandlerComponent, SecondPageComponent ],
+  imports:      [ 
+    BrowserModule, 
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  declarations: [ 
+    AppComponent, 
+    HelloComponent, 
+    ListComponent, 
+    InfoComponent, 
+    FirstPageComponent, 
+    SubHandlerComponent, 
+    SecondPageComponent,
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

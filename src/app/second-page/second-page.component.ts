@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { SubHandler } from '../sub-handler/sub-handler.component';
 
 @Component({
   selector: 'second-page',
   templateUrl: './second-page.component.html',
   styleUrls: ['./second-page.component.css']
 })
-export class SecondPageComponent implements OnInit {
+export class SecondPageComponent implements OnInit, SubHandler {
   items = [
     {id: 1, name: 'Joe', type: 'CRAZY'},
     {id: 2, name: 'Elena', type: 'NORMAL'},
@@ -16,14 +18,28 @@ export class SecondPageComponent implements OnInit {
     {id: 7, name: 'Leonora', type: 'CRAZY'},
   ];
 
+  formArray = new FormArray([]);
+
   infoConfig: any = {scope: 'FirstPage'};
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
 
   ngOnInit() {
   }
 
   itemClick(event, item) {
     console.log({event, item});
+  }
+
+  createNewFormGroup(item: any): FormGroup{
+    item['name'] = new Date().toISOString();
+
+    return this.formBuilder.group(item);
+  }
+
+  createItemFormGroup(item: any): FormGroup{
+    return this.formBuilder.group(item);
   }
 }
