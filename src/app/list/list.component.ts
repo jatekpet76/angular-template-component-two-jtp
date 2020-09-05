@@ -17,4 +17,13 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRemove(event, item) {
+    console.log('onRemove', {event, item});
+
+    this.items = this.items.filter(obj => obj !== item);
+  }
+
+  onAddNewItem() {
+    this.items.push({id: this.items.length+1, name: new Date().toString(), type: 'NEW'});
+  }
 }
