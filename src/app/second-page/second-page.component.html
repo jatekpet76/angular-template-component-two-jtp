@@ -17,9 +17,16 @@
   ></info>
 </ng-template>
 
-<ng-template let-handler="handler" #tplNewItem>
-  <label>
+<ng-template #tplNewItem
+  let-handler="handler" 
+  let-formGroup="formGroup"
+>
+  <label
+    [formGroup]="formGroup"
+  >
     Name
-    <input type="text">
+    <input 
+      formControlName="name"
+      type="text">
   </label>
 </ng-template>

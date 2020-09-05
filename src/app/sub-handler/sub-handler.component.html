@@ -4,7 +4,7 @@
 <ul>
   <ng-container 
     [ngTemplateOutlet]="newTemplate"
-    [ngTemplateOutletContext]="{handler: this}"
+    [ngTemplateOutletContext]="{handler: this, formGroup: formGroupNewItem}"
   ></ng-container>
   <button (click)="onAddNewItem()">Add New Item</button>
   <ng-container *ngFor="let item of items">
