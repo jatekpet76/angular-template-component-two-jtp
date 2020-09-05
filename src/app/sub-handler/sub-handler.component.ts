@@ -72,6 +72,7 @@ export class SubHandlerComponent implements OnInit {
     value.id = this.items.length+1;
 
     this.items.push(value);
+    this.formArray.push(this.formGroupNewItem);
 
     this.prepareNewItem();
   }
