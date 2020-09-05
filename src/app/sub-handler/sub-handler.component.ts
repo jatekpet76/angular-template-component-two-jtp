@@ -65,6 +65,7 @@ export class SubHandlerComponent implements OnInit {
     console.log('onRemove', {event, item});
 
     this.items = this.items.filter(obj => obj !== item);
+    this.formArray.removeAt(index);
   }
 
   onAddNewItem() {
