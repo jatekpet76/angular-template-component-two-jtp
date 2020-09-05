@@ -12,32 +12,30 @@
         [subHandler]="this.secondItemHandler"
       ></sub-handler>
 
-      <ng-template let-item="item" #tplSecondItem>
-        <info 
-          [data]="item"
-          [config]="infoConfig"
-          (click)="itemClick($event, item)"
-        ></info>
+      <ng-template #tplSecondItem
+        let-item="item" 
+        let-formGroup="formGroup"
+        let-index="index"
+      >
+        <label [formGroup]="formGroup">
+          Name: <input formControlName="name" type="text">
+          Approve: <input formControlName="approve" type="checkbox">
+        </label>
       </ng-template>
 
       <ng-template #tplSecondNew
         let-handler="handler" 
         let-formGroup="formGroup"
       >
-        <label
-          [formGroup]="formGroup"
-        >
-          Name: 
-          <input 
-            formControlName="name"
-            type="text">
-
-          Approve: 
-          <input 
-            formControlName="approve"
-            type="checkbox">
+        <label [formGroup]="formGroup">
+          Name: <input formControlName="name" type="text">
+          Approve: <input formControlName="approve" type="checkbox">
         </label>
       </ng-template>
+
+      <pre>
+        {{secondFormArray.getRawValue() | json}}
+      </pre>
     </td>
 
     <td>

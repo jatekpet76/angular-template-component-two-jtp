@@ -61,7 +61,7 @@ export class SubHandlerComponent implements OnInit {
     this.formGroupNewItem = this.subHandler.createNewFormGroup(newItem);
   }
 
-  onRemove(event, item) {
+  onRemove(event, item, form, index) {
     console.log('onRemove', {event, item});
 
     this.items = this.items.filter(obj => obj !== item);

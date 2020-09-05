@@ -1,19 +1,24 @@
 
 <h3>Sub Handler</h3>
 
-<ul>
+<div>
   <ng-container 
     [ngTemplateOutlet]="newTemplate"
     [ngTemplateOutletContext]="{handler: this, formGroup: formGroupNewItem}"
   ></ng-container>
   <button (click)="onAddNewItem()">Add New Item</button>
-  <ng-container *ngFor="let item of items">
+</div>
+
+<ul>
+  <ng-container 
+    *ngFor="let rec of formArray['controls']; let index=index;"
+  >
     <li>
       <ng-container 
         [ngTemplateOutlet]="itemTemplate"
-        [ngTemplateOutletContext]="{item: item}"
+        [ngTemplateOutletContext]="{item: items[index], formGroup: rec, index: index}"
       ></ng-container>
-      <button (click)="onRemove($event, item)">Remove Item</button>
+      <button (click)="onRemove($event, items[index], rec, index)">Remove Item</button>
     </li>
   </ng-container>
 </ul>
